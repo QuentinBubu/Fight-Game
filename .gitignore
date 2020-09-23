@@ -1,2 +1,4 @@
 .history/*
 .vscode/*
+assets/Class/__pycache__/*
+assets/functions/__pycache__/*
