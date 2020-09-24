@@ -1,8 +1,8 @@
 class Character:
-    def __init__(self, elements):
+    def __init__(self, elements, user):
         # User settings definition
-        self.username = elements['username']
-        self.account = elements['account']
+        self.username = user['username']
+        self.account = user['account']
 
         # Character settings
 
