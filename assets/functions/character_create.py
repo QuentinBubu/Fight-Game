@@ -34,8 +34,6 @@ def character_create():  # creation assistée d'un personnage
     file.close()
 
     character_file = open("assets/character/character_list.txt", "r+")
-    character_list = character_file.readline()
-    character_list += ',' + elements['name']
-    character_file.write(character_list)
+    character_file.write(',' + elements['name'])
     character_file.close()
     input("Votre personnage à bien été créer!")
