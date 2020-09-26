@@ -1,4 +1,5 @@
 import os
+import pickle
 
 def account_create():
     if not os.path.exists("assets/accounts/"):
@@ -14,7 +15,7 @@ def account_create():
                 'games_loose': 0,
                 'win_percent': 0
             }
-            file.write(str(account_data))
+            pickle.dump(account_data, file)
             file.close()
             return account_name
         else:

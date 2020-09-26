@@ -1,4 +1,6 @@
 import os
+import pickle
+
 def character_create():  # creation assistée d'un personnage
     if not os.path.exists("assets/character/"): # si le dossier personnages a été supprimé
         os.makedirs("assets/character/") # on le recréé
@@ -30,7 +32,7 @@ def character_create():  # creation assistée d'un personnage
     elements['special_attack'] = int(input("Saisissez les points de vies qui seront retirés lors du coup spécial : "))
 
     file = open(f"assets/character/{elements['name']}.txt", "w")
-    file.write(str(elements))
+    pickle.dump(elements, file)
     file.close()
 
     character_file = open("assets/character/character_list.txt", "r+")
