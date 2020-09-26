@@ -19,4 +19,4 @@ def account_create():
             file.close()
             return account_name
         else:
-            print("Saisissez un autre pseudo")
+            print("Saisissez un autre pseudo, il est déjà pris!")
