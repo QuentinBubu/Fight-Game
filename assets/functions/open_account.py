@@ -6,7 +6,7 @@ def open_account():
         os.makedirs("assets/accounts/")
     while True:
         clean()
-        account = input(f"Quel est ton compte?\n{os.listdir('assets/accounts/')}")
+        account = input(f"Quel est ton compte?\n{''.join(map(str, os.listdir('assets/accounts/'))).replace('.txt', '')}\n")
         if os.path.isfile(f"assets/accounts/{account}.txt"):
             return account
         print("Erreur")
