@@ -7,7 +7,7 @@ def account_create():
     while True:
         account_name = input("Quel sera votre pseudo?")
         if not os.path.isfile(f"assets/accounts/{account_name}.txt"):
-            file = open(f"assets/accounts/{account_name}.txt", "w")
+            file = open(f"assets/accounts/{account_name}.txt", "wb")
             account_data = {
                 'name': account_name,
                 'games_played': 0,

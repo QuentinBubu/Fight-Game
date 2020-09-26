@@ -31,7 +31,7 @@ def character_create():  # creation assistée d'un personnage
     elements['special_number'] = int(input("Saisissez le nombre de coup spécial qu'il lui sera possible d'utiliser: "))
     elements['special_attack'] = int(input("Saisissez les points de vies qui seront retirés lors du coup spécial : "))
 
-    file = open(f"assets/character/{elements['name']}.txt", "w")
+    file = open(f"assets/character/{elements['name']}.txt", "wb")
     pickle.dump(elements, file)
     file.close()
 
