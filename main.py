@@ -2,16 +2,17 @@ import os
 import time
 from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
+from assets.functions.character_create import character_create
 
-try:
+#try:
 
-    print("Bienvenue dans Fight Game, un super jeu de combat!")
-    time.sleep(2)
-    print("Pour commencer, choisissez qui sera le premier joureur et le second")
-
-    print("Joueur 1, à toi!")
-    player1 = pre_start
-
+print("Bienvenue dans Fight Game, un super jeu de combat!")
+time.sleep(2)
+print("Pour commencer, choisissez qui sera le premier joureur et le second")
+print("Joueur 1, à toi!")
+#character_create()
+player1 = pre_start()
+"""
 except Exception as erreur:
     Rapport_Bug = str(Rapport_Bug) + repr(erreur) + "fin"
     print("Nous sommes désolé mais une erreur que nous n'avons pas pu traitée est surenue! Veuillez relancer le jeu! Toutes nos excuses,")
@@ -23,3 +24,4 @@ except Exception as erreur:
         fichier.write(str(Rapport_Bug))
         fichier.close
         print("Merci! le rapport a été créer dans le dossier Rapport dans les fichiers de l'appli! Veuillez l'envoyer à anagamesprint@gmail.com; Merci!")
+"""
