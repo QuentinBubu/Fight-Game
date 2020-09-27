@@ -13,7 +13,7 @@ def choose_character(user):
         clean()
         print(f"{user['username']}, choisis ton personnage: {''.join(map(str, character_list)).replace(',', ', ')}")
         time.sleep(2)
-        for i in range(len(character_list)):
+        for i in range(1,len(character_list)):
             file = open(f"assets/character/{character_list[i]}.txt", "rb")
             character_data = pickle.load(file)
             print("--------------------------------")
