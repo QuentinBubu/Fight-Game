@@ -7,6 +7,7 @@ def choose_character(user):
     character_file = open("assets/character/character_list.txt", "r")
     character_list  = list(character_file.readline().split(","))
     character_file.close()
+    character_choose = 0
 
     while character_choose not in character_list:
         clean()
