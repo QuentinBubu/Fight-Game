@@ -35,7 +35,7 @@ def character_create():  # creation assistée d'un personnage
     pickle.dump(elements, file)
     file.close()
 
-    character_file = open("assets/character/character_list.txt", "r+")
+    character_file = open("assets/character/character_list.txt", "a")
     character_file.write(',' + elements['name'])
     character_file.close()
     input("Votre personnage à bien été créer!")
