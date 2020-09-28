@@ -9,7 +9,7 @@ def choose_character(user):
     character_file.close()
     character_choose = 0
 
-    while character_choose not in character_list:
+    while not character_choose in character_list:
         clean()
         print(f"{user['username']}, choisis ton personnage: {''.join(map(str, character_list)).replace(',', ', ')}")
         time.sleep(2)
