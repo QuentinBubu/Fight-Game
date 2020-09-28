@@ -11,7 +11,7 @@ def choose_character(user):
 
     while not character_choose in character_list:
         clean()
-        print(f"{user['username']}, choisis ton personnage: {''.join(map(str, character_list)).replace(',', ', ')}")
+        print(f"{user['username']}, choisis ton personnage: {str(character_list).replace('[', '').replace(']', '').replace(',', ', ')}")
         time.sleep(2)
         for i in range(1,len(character_list)):
             file = open(f"assets/character/{character_list[i]}.txt", "rb")
