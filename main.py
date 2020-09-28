@@ -9,9 +9,26 @@ from assets.functions.character_create import character_create
 print("Bienvenue dans Fight Game, un super jeu de combat!")
 time.sleep(2)
 print("Pour commencer, choisissez qui sera le premier joureur et le second")
+
 print("Joueur 1, à toi!")
-#character_create()
 player1 = pre_start()
+
+print("Joueur 2, à toi!")
+player2 = pre_start()
+
+input("Êtes vous prêts? Appuyez sur \"Entrée\" pour commencer!")
+for i in range(3,0,-1):
+    print(i)
+    time.sleep(1)
+print("C'est parti!")
+
+while player1.heart > 0 or player2.heart > 0:
+    for i in range(2):
+        pass
+
+else:
+    pass
+
 """
 except Exception as erreur:
     Rapport_Bug = str(Rapport_Bug) + repr(erreur) + "fin"
