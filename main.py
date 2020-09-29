@@ -31,12 +31,11 @@ for i in range(3,0,-1):
     print(i)
     time.sleep(1)
 print("C'est parti!")
-time.sleep(2)
-
-clean()
+time.sleep(1)
 
 while player1.heart > 0 or player2.heart > 0:
     for i in range(2):
+        clean()
         if i == 0:
             player = player1
             opponent = player2
@@ -54,16 +53,28 @@ while player1.heart > 0 or player2.heart > 0:
             clean()
             print(f"Vies restantes: {player.heart}\nAttaque: {player.attack}\nNombre d'esquives restantes: {player.dodge}\nNombre de potion de soin restantes: {player.treatment_number}\nVies regagnées lors d'un soin: {player.treatment}\nNombres de coup spéciaux restants: {player.special_number}\nPoints de vies retirés lors d'une attaque spécial: {player.special_attack}\nAttaque spécial chargée: {player.special_attack_is_charge}\n\nVies restantes de l'adversaire: {opponent.heart}")
             print(f"Liste des actions: {str(action_list).replace('[', '').replace(']', '')}")
-            action = input("Que voulez-vous faire?")
+            action = input("Que voulez-vous faire?\n")
 
         if action == "treatment":
-            player.treatment()
+            error = player.f_treatment()
+            if error:
+                input(error)
+                continue
 
         elif action == "charge":
-            player.dodge_charge()
+            error = player.f_dodge_charge()
+            if error:
+                input(error)
+                continue
 
         elif action == "attaque":
-            player.attack(opponent)
+            player.f_attack(opponent)
+
+        elif action == "attaque spéciale":
+            error = player.f_special_attack(opponent)
+            if error:
+                input(error)
+                continue
 
         if player1.heart < 0 or player2.heart < 0:
             break
