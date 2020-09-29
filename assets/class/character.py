@@ -29,7 +29,7 @@ class Character:
         # Event
         self.event = elements['event']
 
-    def treatment(self):
+    def f_treatment(self):
         if self.treatment_number > 0:
             self.treatment_number -= 1
             self.heart += self.treatment
@@ -39,21 +39,21 @@ class Character:
         else:
             return 'Erreur: vous n\'avez plus de soin possible!'
 
-    def dodge_charge(self):
+    def f_dodge_charge(self):
         if self.dodge > 0:
             self.dodge -= 1
             self.dodge_is_charge = True
         else:
             return 'Erreur: vous n\'avez plus d\'esquives disponibles!'
 
-    def attack(self, opponent): # No finished
+    def f_attack(self, opponent): # No finished
         if not opponent.dodge_is_charge:
             opponent.heart -= self.attack
             opponent.event = 'Vous avez été attaqué par votre adversaire!'
         else:
             opponent.event = 'Vous avez esquivé une attaque de votre adversaire!'
 
-    def special_attack(self, opponent):
+    def f_special_attack(self, opponent):
         if not opponent.dodge_is_charge:
             if self.special_attack_is_charge:
                 opponent.heart -= self.special_attack
