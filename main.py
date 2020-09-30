@@ -5,6 +5,7 @@ from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale"]
+error = 0
 
 #try:
 
@@ -34,7 +35,8 @@ print("C'est parti!")
 time.sleep(1)
 
 while player1.heart > 0 or player2.heart > 0:
-    for i in range(2):
+    i = 0
+    while i < 2:
         clean()
         if i == 0:
             player = player1
@@ -43,7 +45,7 @@ while player1.heart > 0 or player2.heart > 0:
             player = player2
             opponent = player1
 
-        input(f"{player.username} c'est à toi, appuies sur \"Entrée\"")
+        input(f"{player.username} c'est à toi, appuis sur \"Entrée\"") if not error else 0
 
         print(f"Dernier événement:\n{player.event}")
         player.event = "Aucun événement"
@@ -78,6 +80,8 @@ while player1.heart > 0 or player2.heart > 0:
 
         if player1.heart < 0 or player2.heart < 0:
             break
+
+        i += 1
 
 else:
     pass
