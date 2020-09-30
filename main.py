@@ -5,6 +5,7 @@ from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale"]
+action_list.extend("attaque speciale")
 error = 0
 
 #try:
@@ -47,15 +48,15 @@ while player1.heart > 0 or player2.heart > 0:
 
         input(f"{player.username} c'est à toi, appuis sur \"Entrée\"") if not error else 0
 
-        print(f"Dernier événement:\n{player.event}")
-        player.event = "Aucun événement"
-
         action = 0
         while not action in action_list:
             clean()
+            print(f"Dernier événement: {player.event}\n")
             print(f"Vies restantes: {player.heart}\nAttaque: {player.attack}\nNombre d'esquives restantes: {player.dodge}\nNombre de potion de soin restantes: {player.treatment_number}\nVies regagnées lors d'un soin: {player.treatment}\nNombres de coup spéciaux restants: {player.special_number}\nPoints de vies retirés lors d'une attaque spécial: {player.special_attack}\nAttaque spécial chargée: {player.special_attack_is_charge}\n\nVies restantes de l'adversaire: {opponent.heart}")
             print(f"Liste des actions: {str(action_list).replace('[', '').replace(']', '')}")
-            action = input("Que voulez-vous faire?\n")
+            action = input("Que voulez-vous faire?\n").lower()
+        
+        player.event = "Aucun événement"
 
         if action == "treatment":
             error = player.f_treatment()
@@ -63,7 +64,7 @@ while player1.heart > 0 or player2.heart > 0:
                 input(error)
                 continue
 
-        elif action == "charge":
+        elif action == "esquive":
             error = player.f_dodge_charge()
             if error:
                 input(error)
@@ -71,6 +72,12 @@ while player1.heart > 0 or player2.heart > 0:
 
         elif action == "attaque":
             player.f_attack(opponent)
+
+        elif action == "charge":
+            error = player.f_special_attack_charge()
+            if error:
+                input(error)
+                continue
 
         elif action == "attaque spéciale":
             error = player.f_special_attack(opponent)
