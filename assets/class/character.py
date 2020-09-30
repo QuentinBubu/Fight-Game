@@ -53,9 +53,19 @@ class Character:
         else:
             opponent.event = 'Vous avez esquivé une attaque de votre adversaire!'
 
+    def f_special_attack_charge(self):
+        if self.special_number > 0:
+            if self.special_attack_is_charge:
+                return 'Erreur: une attaque spéciale est déjà chargée!'
+            self.special_number -= 1
+            self.special_attack_is_charge = True
+        else:
+            return 'Erreur: vous n\'avez plus de charge possible!'
+
     def f_special_attack(self, opponent):
         if not opponent.dodge_is_charge:
             if self.special_attack_is_charge:
+                self.special_attack_is_charge = False
                 opponent.heart -= self.special_attack
                 opponent.event = 'Vous avez été attaqué par votre adversaire!'
             else:
