@@ -13,12 +13,12 @@ def character_create():  # creation assistée d'un personnage
         'heart': 0,
         'attack': 0,
         'dodge': 0,
-        'dodge_is_charge': 0,
+        'dodge_is_charge': False,
         'treatment_number': 0,
         'treatment': 0,
         'special_number': 0,
         'special_attack': 0,
-        'special_attack_is_charge': 0,
+        'special_attack_is_charge': False,
         'event': 'Aucun evenement'
     }
 
