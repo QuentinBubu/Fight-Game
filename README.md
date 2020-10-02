@@ -1,6 +1,9 @@
 # Fight-Game
 A game where you battle with you firends
 
+## Protected by license
+[Protected by license](https://github.com/QuentinBubu/Fight-Game/blob/master/LICENSE.md)
+
 ### Please
 Please, after download, delete files GitInit.txt into `assets/accounts` and `assets/game_saved` folders
 
