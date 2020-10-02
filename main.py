@@ -5,7 +5,6 @@ from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale"]
-action_list.extend("attaque speciale")
 error = 0
 
 #try:
