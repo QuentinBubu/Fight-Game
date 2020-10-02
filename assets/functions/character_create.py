@@ -26,8 +26,8 @@ def character_create():  # creation assistée d'un personnage
     elements['start_heart'] = elements['heart'] = int(input("Saisissez ses points de vies: "))
     elements['attack'] = int(input("Saisissez ses points d'attaque: "))
     elements['dodge'] = int(input("Saisissez le nombre d'esquives possible: "))
-    elements['traitement_number'] = int(input("Saisissez le nombre de soin qui lui sera possible d'utiliser: "))
-    elements['traitement'] = int(input("Saisissez le nombre de points de vie regagnés lors du soin: "))
+    elements['treatment_number'] = int(input("Saisissez le nombre de soin qui lui sera possible d'utiliser: "))
+    elements['treatment'] = int(input("Saisissez le nombre de points de vie regagnés lors du soin: "))
     elements['special_number'] = int(input("Saisissez le nombre de coup spécial qu'il lui sera possible d'utiliser: "))
     elements['special_attack'] = int(input("Saisissez les points de vies qui seront retirés lors du coup spécial : "))
 
