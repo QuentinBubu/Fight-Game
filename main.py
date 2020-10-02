@@ -47,6 +47,8 @@ while player1.heart > 0 or player2.heart > 0:
 
         input(f"{player.username} c'est à toi, appuis sur \"Entrée\"") if not error else 0
 
+        player.dodge_is_charge = False
+
         action = 0
         while not action in action_list:
             clean()
