@@ -59,7 +59,7 @@ while player1.heart > 0 or player2.heart > 0:
         
         player.event = "Aucun événement"
 
-        if action == "treatment":
+        if action == "soin":
             error = player.f_treatment()
             if error:
                 input(error)
