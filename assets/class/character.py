@@ -72,3 +72,11 @@ class Character:
                 return 'Erreur: Vous avez pas chargé d\'attaque spéciale!'
         else:
             opponent.event = 'Vous avez esquivé une attaque de votre adversaire!'
+
+    def f_prime(self, prime):
+        if prime[0] == "heart":
+            self.heart += prime[1][1]
+        elif prime[0] == "dodge":
+            self.dodge += prime[1][1]
+        elif prime[0] == "treatment_number":
+            self.treatment_number += prime[1][1]

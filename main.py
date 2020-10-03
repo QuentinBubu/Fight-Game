@@ -1,12 +1,23 @@
 import os
 import time
+import random
 from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale"]
 action_list2 = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "attaque speciale"]
-error = 0
+
+prime_list = [
+    ("heart", ("Bravo, vous avez gagné 20 points de vie!", 20)),
+    ("dodge", ("Bravo, vous avez gagné une esquive!", 1)),
+    ("treatment_number", ("Bravo, vous avez gagné une potion de soin!", 1)),
+    ("heart", ("Oh non, vous avez perdu 5 points de vie!", -5)),
+    ("dodge", ("Oh non, vous avez perdu une esquive!", -1))
+]
+
+error = None
+turn = 0
 
 print("Bienvenue dans Fight Game, un super jeu de combat!")
 time.sleep(2)
@@ -18,12 +29,13 @@ print("Pour commencer, choisissez qui sera le premier joureur et le second")
 
 print("Joueur 1, à toi!")
 player1 = pre_start()
-
 clean()
 
 print("Joueur 2, à toi!")
 player2 = pre_start()
+clean()
 
+prime = random.randint(10, 30) if input("Voulez vous activer les bonus/malus? o/n ") == "o" else False
 clean()
 
 input("Êtes vous prêts? Appuyez sur \"Entrée\" pour commencer!")
@@ -32,8 +44,6 @@ for i in range(3,0,-1):
     time.sleep(1)
 print("C'est parti!")
 time.sleep(1)
-
-player1.heart = player2.heart = 25
 
 while player1.heart > 0 and player2.heart > 0:
     i = 0
@@ -46,13 +56,23 @@ while player1.heart > 0 and player2.heart > 0:
             player = player2
             opponent = player1
 
-        print(player1.heart, "...", player2.heart)
+        print(prime)
+        print(turn)
+
+        if prime != False and turn == prime:
+            random_prime = random.randint(0, len(prime_list)-1)
+            player1.f_prime(prime_list[random_prime])
+            player2.f_prime(prime_list[random_prime])
+            clean()
+            input(prime_list[random_prime][1][0])
+            clean()
+            prime = random.randint(turn, turn+20)
 
         input(f"{player.username} c'est à toi, appuis sur \"Entrée\"") if not error else 0
 
         player.dodge_is_charge = False
 
-        action = 0
+        action = None
         while not action in action_list2:
             clean()
             print(f"Dernier événement: {player.event}\n")
@@ -90,6 +110,7 @@ while player1.heart > 0 and player2.heart > 0:
                 continue
 
         i += 1
+        turn += 1
 
 else:
     clean()
