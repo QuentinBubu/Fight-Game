@@ -6,8 +6,17 @@ A game where you battle with you firends
 [Protected by license](https://github.com/QuentinBubu/Fight-Game/blob/master/LICENSE.md)
 
 ---
-### Please
+## Please
 Please, after download, delete files GitInit.txt into `assets/accounts` and `assets/game_saved` folders.
+
+---
+## Suggestion and problem
+If you find a problem or you would made a suggestion, you can create an issue.
+
+---
+## Contribute
+For contribute, create a fork and make a pull request.
+All contribution has accept if she is useful (comments, organization, problem resolve, ...).
 
 ---
 ### Projet section in priority order
@@ -20,11 +29,3 @@ Please, after download, delete files GitInit.txt into `assets/accounts` and `ass
 An organigram is avaible [here for the original verion](https://github.com/QuentinBubu/Fight-Game/blob/master/organigram/Fight-Game-organigram.vpd)
 You can open this with https://online.visual-paradigm.com/ for example.
 The image organigram is avaible [here](https://github.com/QuentinBubu/Fight-Game/blob/master/organigram/Fight-Game-organigram.png)
-
----
-## Suggestion and problem
-If you find a problem or you would made a suggestion, you can create an issue.
-
-## Contribute
-For contribute, create a fork and make a pull request.
-All contribution has accept if she is useful (comments, organization, problem resolve, ...).
