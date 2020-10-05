@@ -96,3 +96,4 @@ class Character:
             account_data['win_percent'] = round(account_data['game_won'] / account_data['games_played'] * 100, 2)
             account_file = open("assets/accounts/{self.account}.txt", "wb")
             pickle.dump(account_data)
+            account_file.close()
