@@ -116,3 +116,5 @@ else:
     clean()
     winner = player2.username if player1.heart <= 0 else player1.username
     input(f"Fin du jeu!!\nBravo à {winner} qui a gagné!")
+    player1.f_add_stats()
+    player2.f_add_stats()

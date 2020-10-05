@@ -1,3 +1,5 @@
+import pickle
+
 class Character:
     def __init__(self, elements, user):
         # User settings definition
@@ -80,3 +82,17 @@ class Character:
             self.dodge += prime[1][1]
         elif prime[0] == "treatment_number":
             self.treatment_number += prime[1][1]
+
+    def f_add_stats(self, win):
+        if self.account != False:
+            account_file = open("assets/accounts/{self.account}.txt", "rb")
+            account_data = pickle.load(account_file)
+            account_file.close()
+            account_data['games_played'] += 1
+            if self.heart < 0:
+                account_data['games_won'] += 1
+            else:
+                account_data['games_won'] += 1
+            account_data['win_percent'] = round(account_data['game_won'] / account_data['games_played'] * 100, 2)
+            account_file = open("assets/accounts/{self.account}.txt", "wb")
+            pickle.dump(account_data)
