@@ -1,5 +1,5 @@
 # Fight-Game
-A game where you battle with you firends
+A game where you battle with you firends!
 
 ---
 ## Protected by license
@@ -10,6 +10,9 @@ A game where you battle with you firends
 Please, after download, delete files GitInit.txt into `assets/accounts` and `assets/game_saved` folders.
 
 ---
+### Start game
+For start the game, you can open the `main.py` file and run with your IDE or interpretor, or, run the bat file which name `Fight Game` only if you are Python file in your PATH.
+
 ## Suggestion and problem
 If you find a problem or you would made a suggestion, you can create an issue.
 
