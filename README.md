@@ -10,7 +10,7 @@ A game where you battle with you firends!
 Please, after download, delete files GitInit.txt into `assets/accounts` and `assets/game_saved` folders.
 
 ---
-### Start game
+## Start game
 For start the game, you can open the `main.py` file and run with your IDE or interpretor, or, run the bat file which name `Fight Game` only if you are Python file in your PATH.
 
 ## Suggestion and problem
@@ -18,7 +18,7 @@ If you find a problem or you would made a suggestion, you can create an issue.
 
 ---
 ## Contribute
-For contribute, create a fork and make a pull request.
+For contribute, create a fork and make a pull request. When you modify file, please, create an issue for announce.
 All contribution has accept if she is useful (comments, organization, problem resolve, ...).
 
 ---
