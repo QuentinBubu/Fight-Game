@@ -1,6 +1,7 @@
 import os
 import time
 import random
+import pickle
 from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
@@ -56,9 +57,6 @@ while player1.heart > 0 and player2.heart > 0:
             player = player2
             opponent = player1
 
-        print(prime)
-        print(turn)
-
         if prime != False and turn == prime:
             random_prime = random.randint(0, len(prime_list)-1)
             player1.f_prime(prime_list[random_prime])
@@ -108,6 +106,20 @@ while player1.heart > 0 and player2.heart > 0:
             if error:
                 input(error)
                 continue
+        
+        elif action == "sauvegarder" and turn == 0:
+            game_name = input("Saisissez le nom de la partie, si une partie existe déjà avec ce nom, elle sera écrasée.")
+            file = open(f"assets/game_saved/{game_name}.txt", "wb")
+            game_data = {
+                "player1": player1,
+                "player2": player2,
+                "turn": turn
+            }
+            file.dump(game_data)
+            file.close()
+
+        elif action == "sauvegarder":
+            input("Impossible de sauvegarder, demander à votre adversaire!")
 
         i += 1
         turn += 1
