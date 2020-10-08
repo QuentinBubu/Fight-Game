@@ -1,10 +1,10 @@
-import os
-import pickle
+import os, pickle
 from assets.functions.clean import clean
 from assets.functions.file_remove import file_remove
 from assets.functions.character_create import character_create
 from assets.functions.open_account import open_account
 from assets.functions.account_create import account_create
+from assets.functions.open_game import open_game
 
 def settings():
     clean()
@@ -13,7 +13,7 @@ def settings():
         print("1: Comptes")
         print("2: Personnages")
         print("3: Couleur")
-        print("4: Supprimer une sauvegarde")
+        print("4: Sauvegarde")
         print("5: Mode en ligne")
         print("Fin: Quitter")
         setting_number = input()
@@ -50,7 +50,12 @@ def settings():
             break
 
         elif setting_number == "4":
-            file_remove("assets/game_saved/")
+            setting_number = input("Que faire? \n1: Ouvrir une sauvegarde \n2: Supprimer une sauvegarde\n")
+            if setting_number == "1":
+                open_game()
+
+            elif setting_number == "2":
+                file_remove("assets/game_saved/")
             """
         elif setting_number == "5":
             if input("1 pour créer le serveur \n2 pour rejoindre un serveur\n") == "1":
