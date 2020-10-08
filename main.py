@@ -6,8 +6,8 @@ from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
 
-action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale"]
-action_list2 = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "attaque speciale"]
+action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "sauvegarder"]
+action_list2 = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "sauvegarder", "attaque speciale"]
 
 prime_list = [
     ("heart", ("Bravo, vous avez gagné 20 points de vie!", 20)),
@@ -18,6 +18,7 @@ prime_list = [
 ]
 
 error = None
+game_already_open = False
 turn = 0
 
 print("Bienvenue dans Fight Game, un super jeu de combat!")
@@ -26,18 +27,19 @@ time.sleep(2)
 if input("Voulez vous ouvrir les paramètres? o/n ") == "o":
     settings()
 
-print("Pour commencer, choisissez qui sera le premier joureur et le second")
+if not game_already_open:
+    print("Pour commencer, choisissez qui sera le premier joureur et le second")
 
-print("Joueur 1, à toi!")
-player1 = pre_start()
-clean()
+    print("Joueur 1, à toi!")
+    player1 = pre_start()
+    clean()
 
-print("Joueur 2, à toi!")
-player2 = pre_start()
-clean()
+    print("Joueur 2, à toi!")
+    player2 = pre_start()
+    clean()
 
-prime = random.randint(10, 30) if input("Voulez vous activer les bonus/malus? o/n ") == "o" else False
-clean()
+    prime = random.randint(10, 30) if input("Voulez vous activer les bonus/malus? o/n ") == "o" else False
+    clean()
 
 input("Êtes vous prêts? Appuyez sur \"Entrée\" pour commencer!")
 for i in range(3,0,-1):
@@ -77,7 +79,9 @@ while player1.heart > 0 and player2.heart > 0:
             print(f"Vies restantes: {player.heart}\nAttaque: {player.attack}\nNombre d'esquives restantes: {player.dodge}\nNombre de potion de soin restantes: {player.treatment_number}\nVies regagnées lors d'un soin: {player.treatment}\nNombres de coup spéciaux restants: {player.special_number}\nPoints de vies retirés lors d'une attaque spécial: {player.special_attack}\nAttaque spécial chargée: {player.special_attack_is_charge}\n\nVies restantes de l'adversaire: {opponent.heart}")
             print(f"Liste des actions: {str(action_list).replace('[', '').replace(']', '')}")
             action = input("Que voulez-vous faire?\n").lower()
-        
+
+            action = action # Debug part
+
         player.event = "Aucun événement"
 
         if action == "soin":
@@ -101,23 +105,23 @@ while player1.heart > 0 and player2.heart > 0:
                 input(error)
                 continue
 
-        elif action == "attaque spéciale" or "attaque speciale":
+        elif action == "attaque spéciale" or action == "attaque speciale":
             error = player.f_special_attack(opponent)
             if error:
                 input(error)
                 continue
-        
-        elif action == "sauvegarder" and turn == 0:
-            game_name = input("Saisissez le nom de la partie, si une partie existe déjà avec ce nom, elle sera écrasée.")
+
+        elif action == "sauvegarder" and i == 0:
+            game_name = input("Saisissez le nom de la partie, si une partie existe déjà avec ce nom, elle sera écrasée.\n")
             file = open(f"assets/game_saved/{game_name}.txt", "wb")
             game_data = {
                 "player1": player1,
                 "player2": player2,
-                "turn": turn
+                "turn": turn,
+                "prime": prime
             }
-            file.dump(game_data)
+            pickle.dump(game_data, file)
             file.close()
-
         elif action == "sauvegarder":
             input("Impossible de sauvegarder, demander à votre adversaire!")
 
