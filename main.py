@@ -1,10 +1,8 @@
-import os
-import time
-import random
-import pickle
+import os, time, random, pickle
 from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
 from assets.functions.settings import settings
+from assets.functions.save_game import save_game
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "sauvegarder"]
 action_list2 = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "sauvegarder", "attaque speciale"]
@@ -80,8 +78,6 @@ while player1.heart > 0 and player2.heart > 0:
             print(f"Liste des actions: {str(action_list).replace('[', '').replace(']', '')}")
             action = input("Que voulez-vous faire?\n").lower()
 
-            action = action # Debug part
-
         player.event = "Aucun événement"
 
         if action == "soin":
@@ -112,16 +108,7 @@ while player1.heart > 0 and player2.heart > 0:
                 continue
 
         elif action == "sauvegarder" and i == 0:
-            game_name = input("Saisissez le nom de la partie, si une partie existe déjà avec ce nom, elle sera écrasée.\n")
-            file = open(f"assets/game_saved/{game_name}.txt", "wb")
-            game_data = {
-                "player1": player1,
-                "player2": player2,
-                "turn": turn,
-                "prime": prime
-            }
-            pickle.dump(game_data, file)
-            file.close()
+            save_game(player1, player2, turn, prime)
         elif action == "sauvegarder":
             input("Impossible de sauvegarder, demander à votre adversaire!")
 
