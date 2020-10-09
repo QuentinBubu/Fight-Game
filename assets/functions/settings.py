@@ -4,7 +4,7 @@ from assets.functions.file_remove import file_remove
 from assets.functions.character_create import character_create
 from assets.functions.open_account import open_account
 from assets.functions.account_create import account_create
-from assets.functions.open_game import open_game
+from assets.functions.open_game import *
 
 def settings():
     clean()
@@ -52,7 +52,7 @@ def settings():
         elif setting_number == "4":
             setting_number = input("Que faire? \n1: Ouvrir une sauvegarde \n2: Supprimer une sauvegarde\n")
             if setting_number == "1":
-                open_game()
+                return open_game()
 
             elif setting_number == "2":
                 file_remove("assets/game_saved/")

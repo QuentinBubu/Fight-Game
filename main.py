@@ -1,7 +1,7 @@
 import os, time, random, pickle
 from assets.functions.clean import clean
 from assets.functions.pre_start import pre_start
-from assets.functions.settings import settings
+from assets.functions.settings import *
 from assets.functions.save_game import save_game
 
 action_list = ["attaque", "esquive", "soin", "charge", "attaque spéciale", "sauvegarder"]
@@ -16,16 +16,19 @@ prime_list = [
 ]
 
 error = None
-game_already_open = False
 turn = 0
 
 print("Bienvenue dans Fight Game, un super jeu de combat!")
 time.sleep(2)
 
 if input("Voulez vous ouvrir les paramètres? o/n ") == "o":
-    settings()
+    if game_date := settings():
+        player1 = Character(game_date['player1'], game_date['player1'])
+        player2 = Character(game_date['player2'], game_date['player2'])
+        turn = game_date['turn']
+        prime = game_date['prime']
 
-if not game_already_open:
+if not 'prime' in globals():
     print("Pour commencer, choisissez qui sera le premier joureur et le second")
 
     print("Joueur 1, à toi!")
