@@ -7,5 +7,4 @@ def open_game():
     file = open(f"assets/game_saved/{game_to_open}.txt", "rb")
     game_date = pickle.load(file)
     file.close()
-
     return game_date

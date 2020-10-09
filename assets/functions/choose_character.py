@@ -1,5 +1,4 @@
-import time
-import pickle
+import time, pickle
 from assets.functions.clean import clean
 
 def choose_character(user):

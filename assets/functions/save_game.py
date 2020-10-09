@@ -1,6 +1,7 @@
 import pickle
 
 def player_data_set(player):
+
     elements = {
         'username': player.username,
         'account': player.account,
@@ -16,6 +17,7 @@ def player_data_set(player):
         'special_attack_is_charge': player.special_attack_is_charge,
         'event': player.event
     }
+    
     return elements
 
 def save_game(player1, player2, turn, prime):
@@ -28,5 +30,6 @@ def save_game(player1, player2, turn, prime):
         "turn": turn,
         "prime": prime
     }
+    
     pickle.dump(game_data, file)
     file.close()

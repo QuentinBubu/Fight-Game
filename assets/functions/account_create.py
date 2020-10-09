@@ -1,7 +1,7 @@
-import os
-import pickle
+import os, pickle
 
 def account_create():
+    # If folder doesn't exist
     if not os.path.exists("assets/accounts/"):
         os.makedirs("assets/accounts/")
     while True:

@@ -56,29 +56,6 @@ def settings():
 
             elif setting_number == "2":
                 file_remove("assets/game_saved/")
-            """
-        elif setting_number == "5":
-            if input("1 pour créer le serveur \n2 pour rejoindre un serveur\n") == "1":
-                creer_serveur()
-
-            else:
-                serveur_ip = input("Veuillez saisir l'addresse IP donné par la partie serveur (fonctionne en local uniquement): ")
-                cote_client.connect((serveur_ip, port))
-                #test de connexion
-                time.sleep(1)
-                print("Démarrage du test de connexion...")
-                print("Envoie du packet 1")
-                cote_client.send("test1".encode('utf-8'))
-                msg = cote_client.recv(1024).decode('utf-8')
-                if msg == "test2":
-                    cote_client.send("ok".encode('utf-8'))
-                    input("Test réussi, appuyez sur \"Entrée\"")
-                    mode_de_jeu = "en ligne, client"
-                    jeu_client()
-
-                else:
-                    print("Echec")
-            """
         else:
             input("Erreur, veuillez saisir un chiffre valide!")
         clean()

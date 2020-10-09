@@ -24,7 +24,4 @@ def pre_start():
     character_file = open(f"assets/character/{character}.txt", "rb")
     character_data = pickle.load(character_file)
     character_file.close()
-
     return Character(character_data, user)
-
-

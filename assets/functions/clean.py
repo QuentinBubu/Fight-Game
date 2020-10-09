@@ -1,5 +1,4 @@
-import platform
-import os
+import platform, os
 def clean():
     if platform.system() == "Windows":
         os.system("cls")
