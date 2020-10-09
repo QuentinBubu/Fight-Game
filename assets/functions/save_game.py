@@ -2,7 +2,7 @@ import pickle
 
 def player_data_set(player):
     elements = {
-        'name': player.username,
+        'username': player.username,
         'account': player.account,
         'start_heart': player.start_heart,
         'heart': player.heart,
