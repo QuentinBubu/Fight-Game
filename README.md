@@ -29,6 +29,7 @@ All contribution has accept if she is useful (comments, organization, problem re
 
 ---
 ### Organigram
-An organigram is avaible [here for the original verion](https://github.com/QuentinBubu/Fight-Game/blob/master/organigram/Fight-Game-organigram.vpd)
+An organigram is avaible [here for the original verion](https://github.com/QuentinBubu/Fight-Game/blob/master/organigram/Fight-Game-organigram.vpd).
+<br />
 You can open this with https://online.visual-paradigm.com/ for example.
 The image organigram is avaible [here](https://github.com/QuentinBubu/Fight-Game/blob/master/organigram/Fight-Game-organigram.png)
