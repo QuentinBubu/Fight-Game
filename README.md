@@ -1,5 +1,9 @@
 # Fight-Game
 A game where you battle with you firends!
+<br />
+V1 is stable version.
+<br />
+V1.5 is new version (LAN game) but not working.
 
 ---
 ## Protected by license
