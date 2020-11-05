@@ -5,6 +5,7 @@ from assets.functions.character_create import character_create
 from assets.functions.open_account import open_account
 from assets.functions.account_create import account_create
 from assets.functions.open_game import *
+from assets.functions.online_game import online_game
 
 def settings():
     clean()
@@ -56,6 +57,10 @@ def settings():
 
             elif setting_number == "2":
                 file_remove("assets/game_saved/")
+
+        elif setting_number == "5":
+            online_game()
+            
         else:
             input("Erreur, veuillez saisir un chiffre valide!")
         clean()
